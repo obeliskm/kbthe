@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# skip the airflow venv folder
+airflow/
+
+# skip .terraform folders
+.terraform
+*.tfstate
+tfplan

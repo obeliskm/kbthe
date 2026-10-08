@@ -1,0 +1,36 @@
+# workflow run when a pull request against main is opened or updated
+# runs basic tests and lints on the branch
+
+# this isn't remotely realistic, it's just a placeholder.  Basic idea
+# is that tests added here must pass before an approver can approve the
+# pull request, to prevent broken code from being merged into main.  At
+# a minimum, the workflow should run unit tests and lints, it could
+# also run integration tests if a test environment is available.
+name: tests and lints
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          pytest tests/
+
