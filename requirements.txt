@@ -28,7 +28,7 @@ beautifulsoup4==4.15.0
 boto3==1.43.108
 botocore==1.43.108
 cachetools==7.2.1
-cadwyn==7.0.0
+cadwyn==7.4.0
 certifi==2026.7.22
 cffi==2.1.1
 charset-normalizer==3.5.2
